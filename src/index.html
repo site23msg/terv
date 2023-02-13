@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <title>TervKÉSZ</title>
+</head>
+<body class="bg-black text-white">
+    <nav class="flex items-center justify-between px-8 hidden">
+        <a href="#">
+            <img class="h-32 bg-transparent" src="../assets/brand.jpg" alt="">
+        </a>
+        <div class="flex text-xl space-x-28 items-center">
+          <a href="#" class="text-base font-medium">Home</a>
+          <a href="#" class="text-base font-medium">About</a>
+          <a href="#" class="text-base font-medium">Services</a>
+          <a href="">
+            <label for="language-select">
+                <select id="language-select" class="p-2 bg-transparent rounded-md text-3xl">
+                  <option class="text-3xl" value="hu">🇭🇺</option>
+                  <option class="text-3xl" value="en">🇬🇧</option>
+                </select>
+              </label>
+          </a>
+        </div>
+    </nav>
+    <!--Header-->
+    <div class="text-center">
+        <h1 class="uppercase xl:text-7xl font-bold mx-auto mt-20">az ön sikerének útját építjük</h1>
+    </div>
+    <!--Header end-->
+   <main>
+     <!--Services-->
+    <div class="flex flex-col items-center justify-center md:flex-wrap lg:flex-row gap-20 my-20 lg:w-[70%] mx-auto px-7">
+        <div class="max-w-[300px] text-center">
+            <div class="rounded-full w-64 h-64 border-4 border-yellow-400 mb-10"></div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum sequi aspernatur voluptas praesentium optio quas dolorum, commodi at ullam dicta adipisci, mollitia delectus animi. Recusandae iusto quae qui soluta quo.</p>
+        </div>
+        <div class="max-w-[300px] text-center">
+            <div class="rounded-full w-64 h-64 border-4 border-yellow-400 mb-10"></div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dolores consequatur nisi accusantium possimus debitis, repellat quis dicta odio mollitia doloribus laudantium earum. Officiis quidem repudiandae hic voluptatibus sequi? Dolores.</p>
+        </div>
+        <div class="max-w-[300px] text-center">
+            <div class="rounded-full w-64 h-64 border-4 border-yellow-400 mb-10"></div>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore quo eos molestias sapiente officiis velit assumenda fugiat nobis aut laborum ipsum consequatur eveniet itaque iusto corporis, atque, asperiores doloribus laboriosam!</p>
+        </div>
+    </div>
+    <!--Services end-->
+    <!--About us-->
+    <section class="my-20 px-7 w-full lg:w-[70%] mx-auto">
+        <div class="relative text-center lg:text-left">
+            <h2 class="uppercase text-center font-bold xl:text-5xl py-20">rólunk</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem commodi quia explicabo officia quidem illum cupiditate et fugit harum adipisci repudiandae inventore nam aspernatur aliquid eum quae, pariatur recusandae voluptatibus.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum eligendi sapiente consectetur! Veritatis similique perspiciatis facilis architecto et aspernatur quis, maxime voluptatum tempora earum odio. Nesciunt nihil quis voluptatibus rem!
+            </p>
+        </div>
+    </section>
+    <!--About us end-->
+    <!--Gallery-->
+    <section class="my-20 px-7 w-full lg:w-[70%] mx-auto">
+        <div class="relative text-center lg:text-left">
+            <h2 class="uppercase font-bold xl:text-5xl py-20">galéria</h2>
+            <div class="flex flex-wrap justify-center gap-20 uppercase font-bold text-2xl lg:text-3xl">
+                <div class="relative w-[300px] h-[300px]">
+                    <img src="https://picsum.photos/300/300" alt="Image" class="absolute top-0 left-0 w-full h-full object-cover opacity-75">
+                    <p class="absolute w-full top-1/2 left-40 transform -translate-x-1/2 -translate-y-1/2">tervkészgroup</p>
+                </div>
+                <div class="relative w-[300px] h-[300px]">
+                    <img src="https://picsum.photos/300/300" alt="Image" class="absolute top-0 left-0 w-full h-full object-cover opacity-75">
+                    <p class="absolute w-full top-1/2 left-40 transform -translate-x-1/2 -translate-y-1/2">machinerygroup</p>
+                </div>
+                <div class="relative w-[300px] h-[300px]">
+                    <img src="https://picsum.photos/300/300" alt="Image" class="absolute top-0 left-0 w-full h-full object-cover opacity-75">
+                    <p class="absolute w-full top-1/2 left-40 transform -translate-x-1/2 -translate-y-1/2">machinerygroup</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Gallery end-->
+    <!--Térkép-->
+    <section class="my-20">
+        <div class="w-full lg:w-[70%] mx-auto">
+            <h2 class="uppercase font-bold xl:text-5xl py-20 px-7">térkép</h2>
+        </div>
+        <div class="w-full">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5391.390701942074!2d19.002732129061563!3d47.49584791670976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741de852f96bfe3%3A0x64e69726fa7907c8!2sBudapest%2C%20Orb%C3%A1nhegy!5e0!3m2!1sen!2shu!4v1668692559173!5m2!1sen!2shu" width="100%" height="500px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+    <!--Térkép end-->
+    <!--Kapcsolat-->
+    <section class="my-20 px-7 w-full lg:w-[70%] mx-auto">
+        <div>
+            <h2 class="uppercase font-bold xl:text-5xl">kapcsolat</h2>
+            <form action="contact.php">
+                <div class="my-14">
+                    <h3>Hiszünk benne, hogy kommunikációval szinte mindent meglehet oldani.</h3>
+                    <span>Miben segíthetünk?</span>
+                </div>
+                <div class="flex flex-col gap-y-5">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                        <div>
+                            <label class="uppercase block font-bold" for="">vezetéknév</label>
+                            <input class="rounded-md w-full p-2 text-sm text-black border-4 border-gray-400 bg-transparent" type="text" placeholder="VEZETÉKNÉV">
+                        </div>
+                        <div>
+                            <label class="uppercase block font-bold" for="">keresztnév</label>
+                            <input class="rounded-md w-full p-2 text-sm text-black border-4 border-gray-400 bg-transparent" type="text" placeholder="KERESZTNÉV">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                        <div>
+                            <label class="uppercase block font-bold" for="">e-mail</label>
+                            <input class="rounded-md w-full p-2 text-sm text-black border-4 border-gray-400 bg-transparent" type="email" placeholder="E-MAIL">
+                        </div>
+                        <div>
+                            <label class="uppercase block font-bold" for="">telefonszám</label>
+                            <input class="rounded-md w-full p-2 text-sm text-black border-4 border-gray-400 bg-transparent" type="tel" placeholder="TELEFONSZÁM">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="uppercase block font-bold" for="">üzenet</label>
+                        <textarea class="rounded-md w-full p-2 text-sm text-black border-4 border-gray-400 bg-transparent" name="" id="" cols="30" rows="10" placeholder="ÍRJ NEÜNK, HOGY ÜZENHESSÜNK"></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!--Kapcsolat end-->
+   </main>
+   <footer>
+        <div class="grid lg:grid-cols-3 gap-10 px-7 w-full lg:w-[70%] mx-auto py-10">
+            <div class="flex flex-col justify-between">
+                <img class="max-w-[200px]" src="../assets/brand.jpg" alt="">
+                <span class="text-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat consequatur quis aliquam iste sunt placeat alias eligendi molestiae, ducimus et possimus ab laudantium accusantium dolores nihil incidunt, assumenda quibusdam dolore?</span>
+            </div>
+            <div class="flex flex-col justify-between gap-10">
+                <div>
+                    <h2 class="uppercase font-bold pt-10">nyitvatartás</h3>
+                    <p>1010 Budapest, Kil Pál utca 15</p>
+                    <p>+36 00 274 32 71</p>
+                    <p>info@tervgroup.com</p>
+                </div>
+                <div>
+                    <h2 class="uppercase font-bold">elérhetőség</h3>
+                    <p>1010 Budapest, Kil Pál utca 15</p>
+                    <p>+36 00 274 32 71</p>
+                    <p>info@tervgroup.com</p>
+                </div>
+            </div>
+            <div class="flex flex-col justify-between gap-10">
+                <h2 class="uppercase font-bold pt-10">kövess minket</h3>
+                <div class="flex flex-row justify-around items-center">
+                    <a href="#" class="text-xl">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-xl">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-xl">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="text-xl">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+                <div>
+                    <h2 class="uppercase font-bold">iratkozz fel</h3>
+                    <form action="subscribe.php">
+                        <label for="email"></label>
+                        <input class="w-full p-2 text-sm text-black bg-white bg-transparent mb-1" type="email" name="" id="" placeholder="E-mail cím">
+                        <button class="bg-gray-400 p-2 w-full">feliratkozom</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-6">
+            <span>© 2021 Copyright - </span>
+            <a class="font-semibold" href="https://tailwind-elements.com/">VALAMILYEN CÉGNÉV KFT. - MINDEN JOG FENNTARTVA</a>
+        </div>
+   </footer>
+</body>
+</html>
