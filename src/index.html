@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,54 +7,95 @@
     <link href="../dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <title>TervKÉSZ</title>
 </head>
-<body class="bg-black text-white">
-    <nav class="flex items-center justify-between px-8 hidden">
-        <a href="#">
-            <img class="h-32 bg-transparent" src="../assets/brand.jpg" alt="">
-        </a>
-        <div class="flex text-xl space-x-28 items-center">
-          <a href="#" class="text-base font-medium">Home</a>
-          <a href="#" class="text-base font-medium">About</a>
-          <a href="#" class="text-base font-medium">Services</a>
-          <a href="">
-            <label for="language-select">
-                <select id="language-select" class="p-2 bg-transparent rounded-md text-3xl">
-                  <option class="text-3xl" value="hu">🇭🇺</option>
-                  <option class="text-3xl" value="en">🇬🇧</option>
-                </select>
-              </label>
-          </a>
+<body class="bg-black text-white" x-data="{ navbar: false }">
+    <div class="flex flex-row justify-between">
+        <div>
+            <a class="block" href="index.html">
+                <img class="h-32 bg-transparent" src="../assets/tervlogo.png" alt="">
+            </a>
         </div>
-    </nav>
+        <nav class="items-center justify-center px-8 hidden lg:flex">
+            <div class="flex text-xl space-x-28 items-center">
+              <a href="#" class="text-base hover:text-gray-400 font-medium">Szolgáltatások</a>
+              <a href="#about" class="text-base hover:text-gray-400 font-medium">Rólunk</a>
+              <a href="#contact" class="text-base hover:text-gray-400 font-medium">Kapcsolat</a>
+              <a href="">
+                <label for="language-select">
+                    <select id="language-select" class="p-2 bg-transparent rounded-md text-3xl">
+                      <option class="text-3xl" value="hu">🇭🇺</option>
+                      <option class="text-3xl" value="en">🇬🇧</option>
+                    </select>
+                  </label>
+              </a>
+            </div>
+        </nav>
+        <nav class="md:hidden">
+            <ul :class="navbar === false ? 'absolute top-0 left-0 flex transform duration-500 transition-all -translate-x-full flex-col' : 'absolute top-0 left-0 flex transform duration-500 transition-all translate-x-0 flex-col bg-gray-900 gap-10 text-white z-20'"
+            class="px-5 w-1/2 text-2xl py-5 text-center">
+                <li>
+                    <div>
+                        <a href="#">
+                            <img class="h-32 bg-transparent" src="../assets/tervlogo.png" alt="">
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <a href="">Szólgáltatások</a>
+                </li>
+                <li>
+                    <a href="#about">Rólunk</a>
+                </li>
+                 <li>
+                <a href="#contact">Kapcsolat</a>
+                </li>
+                <li>
+                    <a href="">
+                        <label for="language-select">
+                            <select id="language-select" class="p-2 bg-transparent rounded-md text-3xl">
+                                <option class="text-3xl" value="hu">🇭🇺</option>
+                                <option class="text-3xl" value="en">🇬🇧</option>
+                            </select>
+                        </label>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="flex flex-col w-10 m-4 cursor-pointer relative md:hidden" @click="navbar = !navbar" @click.away="navbar = false">
+            <hr class="border-2 border-Darkblue dark:border-white border-solid  mt-2">
+            <hr class="border-2 border-Darkblue  dark:border-white border-solid mt-2">
+            <hr class="border-2 border-Darkblue dark:border-white border-solid mt-2">
+        </div>
+    </div>
     <!--Header-->
-    <div class="text-center">
-        <h1 class="uppercase xl:text-7xl font-bold mx-auto mt-20">az ön sikerének útját építjük</h1>
-    </div>
-    <!--Header end-->
-   <main>
-     <!--Services-->
-    <div class="flex flex-col items-center justify-center md:flex-wrap lg:flex-row gap-20 my-20 lg:w-[70%] mx-auto px-7">
-        <div class="max-w-[300px] text-center">
-            <div class="rounded-full w-64 h-64 border-4 border-yellow-400 mb-10"></div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum sequi aspernatur voluptas praesentium optio quas dolorum, commodi at ullam dicta adipisci, mollitia delectus animi. Recusandae iusto quae qui soluta quo.</p>
+    <header class="bg-[url('/assets/hero.png')] bg-fill lg:h-screen bg-no-repeat relative">
+        <div class="text-center my-20">
+            <h1 class="uppercase md:text-3xl xl:text-6xl lg:mx-auto mt-20">az ön sikerének útját építjük</h1>
         </div>
-        <div class="max-w-[300px] text-center">
-            <div class="rounded-full w-64 h-64 border-4 border-yellow-400 mb-10"></div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dolores consequatur nisi accusantium possimus debitis, repellat quis dicta odio mollitia doloribus laudantium earum. Officiis quidem repudiandae hic voluptatibus sequi? Dolores.</p>
+        <!--Header end-->
+         <!--Services-->
+        <div class="my-20 lg:w-[70%] lg:mx-auto px-7">
+            <!-- <div class="max-w-[300px] text-center absolute left-[45%] top[5%]">
+                <div class="rounded-full mb-10 bulb1 bg-black z-10"></div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum sequi aspernatur voluptas praesentium optio quas dolorum, commodi at ullam dicta adipisci, mollitia delectus animi. Recusandae iusto quae qui soluta quo.</p>
+            </div>
+            <div class="max-w-[300px] text-center absolute left-[65%] bottom-0">
+                <div class="rounded-full mb-10 bulb2 bg-black z-10"></div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dolores consequatur nisi accusantium possimus debitis, repellat quis dicta odio mollitia doloribus laudantium earum. Officiis quidem repudiandae hic voluptatibus sequi? Dolores.</p>
+            </div>
+            <div class="max-w-[300px] text-center absolute left-[30%] bottom-0">
+                <div class="rounded-full bulb2 bg-black mb-10 z-10"></div>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore quo eos molestias sapiente officiis velit assumenda fugiat nobis aut laborum ipsum consequatur eveniet itaque iusto corporis, atque, asperiores doloribus laboriosam!</p>
+            </div> -->
         </div>
-        <div class="max-w-[300px] text-center">
-            <div class="rounded-full w-64 h-64 border-4 border-yellow-400 mb-10"></div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore quo eos molestias sapiente officiis velit assumenda fugiat nobis aut laborum ipsum consequatur eveniet itaque iusto corporis, atque, asperiores doloribus laboriosam!</p>
-        </div>
-    </div>
+    </header>
     <!--Services end-->
     <!--About us-->
-    <section class="my-20 px-7 w-full lg:w-[70%] mx-auto">
-        <div class="relative text-center lg:text-left">
-            <h2 class="uppercase text-center font-bold xl:text-5xl py-20">rólunk</h2>
+    <section id="about" class="my-20 px-7 w-full lg:w-[70%] lg:mx-auto relative after:content-[' '] after:absolute after:right-0 after:-bottom-20 after:w-1/2 after:h-2 after:bg-gray-400 after:rounded-full before:content-[' '] before:absolute before:right-0 before:-bottom-24 before:w-1/4 before:h-2 before:bg-yellow-500 before:rounded-full">
+        <div class="text-center lg:text-left">
+            <h2 class="uppercase text-center lg:text-left font-bold xl:text-5xl py-20">rólunk</h2>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem commodi quia explicabo officia quidem illum cupiditate et fugit harum adipisci repudiandae inventore nam aspernatur aliquid eum quae, pariatur recusandae voluptatibus.
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum eligendi sapiente consectetur! Veritatis similique perspiciatis facilis architecto et aspernatur quis, maxime voluptatum tempora earum odio. Nesciunt nihil quis voluptatibus rem!
             </p>
@@ -62,30 +103,30 @@
     </section>
     <!--About us end-->
     <!--Gallery-->
-    <section class="my-20 px-7 w-full lg:w-[70%] mx-auto">
+    <section class="my-20 px-7 w-full lg:w-[70%] lg:mx-auto relative after:content-[' '] after:absolute after:right-0 after:-bottom-20 after:w-1/2 after:h-2 after:bg-gray-500 after:rounded-full before:content-[' '] before:absolute before:right-0 before:-bottom-24 before:w-1/4 before:h-2 before:bg-gray-400 before:rounded-full">
         <div class="relative text-center lg:text-left">
             <h2 class="uppercase font-bold xl:text-5xl py-20">galéria</h2>
-            <div class="flex flex-wrap justify-center gap-20 uppercase font-bold text-2xl lg:text-3xl">
+            <div class="flex flex-wrap justify-center lg:justify-between gap-20 uppercase font-bold text-xl lg:text-2xl">
                 <div class="relative w-[300px] h-[300px]">
-                    <img src="https://picsum.photos/300/300" alt="Image" class="absolute top-0 left-0 w-full h-full object-cover opacity-75">
-                    <p class="absolute w-full top-1/2 left-40 transform -translate-x-1/2 -translate-y-1/2">tervkészgroup</p>
+                    <img src="https://picsum.photos/300/300" alt="Image" class="object-cover opacity-75 transition-all hover:opacity-100 hover:scale-[1.1] hover:duration-300 hover:cursor-pointer">
+                    <p class="absolute w-full top-1/2 left-[50%] lg:left-[65%] transform -translate-x-1/2 -translate-y-1/2">tervkészgroup</p>
                 </div>
                 <div class="relative w-[300px] h-[300px]">
-                    <img src="https://picsum.photos/300/300" alt="Image" class="absolute top-0 left-0 w-full h-full object-cover opacity-75">
-                    <p class="absolute w-full top-1/2 left-40 transform -translate-x-1/2 -translate-y-1/2">machinerygroup</p>
+                    <img src="https://picsum.photos/300/300" alt="Image" class="object-cover opacity-75 transition-all hover:opacity-100 hover:scale-[1.1] hover:duration-300 hover:cursor-pointer">
+                    <p class="absolute w-full top-1/2 left-[50%] lg:left-[65%] transform -translate-x-1/2 -translate-y-1/2">machinerygroup</p>
                 </div>
                 <div class="relative w-[300px] h-[300px]">
-                    <img src="https://picsum.photos/300/300" alt="Image" class="absolute top-0 left-0 w-full h-full object-cover opacity-75">
-                    <p class="absolute w-full top-1/2 left-40 transform -translate-x-1/2 -translate-y-1/2">machinerygroup</p>
+                    <img src="https://picsum.photos/300/300" alt="Image" class="object-cover opacity-75 transition-all hover:opacity-100 hover:scale-[1.1] hover:duration-300 hover:cursor-pointer">
+                    <p class="absolute w-full top-1/2 left-[50%] lg:left-[65%] transform -translate-x-1/2 -translate-y-1/2">machinerygroup</p>
                 </div>
             </div>
         </div>
     </section>
     <!--Gallery end-->
     <!--Térkép-->
-    <section class="my-20">
-        <div class="w-full lg:w-[70%] mx-auto">
-            <h2 class="uppercase font-bold xl:text-5xl py-20 px-7">térkép</h2>
+    <section class="my-20 relative after:content-[' '] after:absolute after:left-0 after:-bottom-20 after:w-1/2 after:h-2 after:bg-yellow-500 after:rounded-full before:content-[' '] before:absolute before:left-0 before:-bottom-24 before:w-1/4 before:h-2 before:bg-gray-400 before:rounded-full">
+        <div class="w-full lg:w-[70%] lg:mx-auto">
+            <h2 class="uppercase font-bold text-center lg:text-left xl:text-5xl py-20 px-7">térkép</h2>
         </div>
         <div class="w-full">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5391.390701942074!2d19.002732129061563!3d47.49584791670976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741de852f96bfe3%3A0x64e69726fa7907c8!2sBudapest%2C%20Orb%C3%A1nhegy!5e0!3m2!1sen!2shu!4v1668692559173!5m2!1sen!2shu" width="100%" height="500px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -93,7 +134,7 @@
     </section>
     <!--Térkép end-->
     <!--Kapcsolat-->
-    <section class="my-20 px-7 w-full lg:w-[70%] mx-auto">
+    <section id="contact" class="my-28 px-7 w-full lg:w-[70%] lg:mx-auto">
         <div>
             <h2 class="uppercase font-bold xl:text-5xl">kapcsolat</h2>
             <form action="contact.php">
@@ -105,26 +146,29 @@
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
                         <div>
                             <label class="uppercase block font-bold" for="">vezetéknév</label>
-                            <input class="rounded-md w-full p-2 text-sm text-black border-4 border-gray-400 bg-transparent" type="text" placeholder="VEZETÉKNÉV">
+                            <input class="rounded-md w-full p-2 text-sm lg:text-lg text-white outline-none border-4 border-gray-400 bg-transparent" type="text" placeholder="VEZETÉKNÉV">
                         </div>
                         <div>
                             <label class="uppercase block font-bold" for="">keresztnév</label>
-                            <input class="rounded-md w-full p-2 text-sm text-black border-4 border-gray-400 bg-transparent" type="text" placeholder="KERESZTNÉV">
+                            <input class="rounded-md w-full p-2 text-sm lg:text-lg text-white outline-none border-4 border-gray-400 bg-transparent" type="text" placeholder="KERESZTNÉV">
                         </div>
                     </div>
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
                         <div>
                             <label class="uppercase block font-bold" for="">e-mail</label>
-                            <input class="rounded-md w-full p-2 text-sm text-black border-4 border-gray-400 bg-transparent" type="email" placeholder="E-MAIL">
+                            <input class="rounded-md w-full p-2 text-sm lg:text-lg text-white outline-none border-4 border-gray-400 bg-transparent" type="email" placeholder="E-MAIL">
                         </div>
                         <div>
                             <label class="uppercase block font-bold" for="">telefonszám</label>
-                            <input class="rounded-md w-full p-2 text-sm text-black border-4 border-gray-400 bg-transparent" type="tel" placeholder="TELEFONSZÁM">
+                            <input class="rounded-md w-full p-2 text-sm lg:text-lg text-white outline-none border-4 border-gray-400 bg-transparent" type="tel" placeholder="TELEFONSZÁM">
                         </div>
                     </div>
                     <div>
                         <label class="uppercase block font-bold" for="">üzenet</label>
-                        <textarea class="rounded-md w-full p-2 text-sm text-black border-4 border-gray-400 bg-transparent" name="" id="" cols="30" rows="10" placeholder="ÍRJ NEÜNK, HOGY ÜZENHESSÜNK"></textarea>
+                        <textarea class="rounded-md w-full p-2 text-sm lg:text-lg text-white outline-none border-4 border-gray-400 bg-transparent" name="" id="" cols="30" rows="10" placeholder="ÍRJ NEÜNK, HOGY ÜZENHESSÜNK"></textarea>
+                    </div>
+                    <div>
+                        <button class="uppercase bg-gray-400 font-bold px-8 py-2 rounded-md hover:bg-white hover:text-gray-400 transition-all ease-linear duration-300">küldés</button>
                     </div>
                 </div>
             </form>
@@ -133,47 +177,47 @@
     <!--Kapcsolat end-->
    </main>
    <footer>
-        <div class="grid lg:grid-cols-3 gap-10 px-7 w-full lg:w-[70%] mx-auto py-10">
+        <div class="grid lg:grid-cols-3 lg:gap-10 px-7 w-full lg:w-[70%] lg:mx-auto py-10">
             <div class="flex flex-col justify-between">
-                <img class="max-w-[200px]" src="../assets/brand.jpg" alt="">
+                <img class="max-w-[200px]" src="../assets/tervlogo.png" alt="">
                 <span class="text-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat consequatur quis aliquam iste sunt placeat alias eligendi molestiae, ducimus et possimus ab laudantium accusantium dolores nihil incidunt, assumenda quibusdam dolore?</span>
             </div>
             <div class="flex flex-col justify-between gap-10">
                 <div>
-                    <h2 class="uppercase font-bold pt-10">nyitvatartás</h3>
+                    <h2 class="uppercase font-bold pt-10 mb-2">nyitvatartás</h3>
                     <p>1010 Budapest, Kil Pál utca 15</p>
                     <p>+36 00 274 32 71</p>
                     <p>info@tervgroup.com</p>
                 </div>
                 <div>
-                    <h2 class="uppercase font-bold">elérhetőség</h3>
+                    <h2 class="uppercase font-bold mb-0 lg:mb-2">elérhetőség</h3>
                     <p>1010 Budapest, Kil Pál utca 15</p>
                     <p>+36 00 274 32 71</p>
                     <p>info@tervgroup.com</p>
                 </div>
             </div>
-            <div class="flex flex-col justify-between gap-10">
-                <h2 class="uppercase font-bold pt-10">kövess minket</h3>
-                <div class="flex flex-row justify-around items-center">
-                    <a href="#" class="text-xl">
+            <div class="flex flex-col justify-between">
+                <h2 class="uppercase font-bold pt-10 mb-2">kövess minket</h3>
+                <div class="flex gap-10 justify-start items-center mb-4 lg:mb-0">
+                    <a href="#" class="flex justify-center items-center text-xl bg-gray-400 hover:bg-white hover:text-gray-400 transition-all ease-linear duration-300 rounded-full p-1 h-10 w-10">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#" class="text-xl">
+                    <a href="#" class="flex justify-center items-center text-xl bg-gray-400 hover:bg-white hover:text-gray-400 transition-all ease-linear duration-300 rounded-full p-1 h-10 w-10">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="#" class="text-xl">
+                    <a href="#" class="flex justify-center items-center text-xl bg-gray-400 hover:bg-white hover:text-gray-400 transition-all ease-linear duration-300 rounded-full p-1 h-10 w-10">
                         <i class="fab fa-youtube"></i>
                     </a>
-                    <a href="#" class="text-xl">
+                    <a href="#" class="flex justify-center items-center text-xl bg-gray-400 hover:bg-white hover:text-gray-400 transition-all ease-linear duration-300 rounded-full p-1 h-10 w-10">
                         <i class="fab fa-facebook"></i>
                     </a>
                 </div>
                 <div>
-                    <h2 class="uppercase font-bold">iratkozz fel</h3>
+                    <h2 class="uppercase font-bold mb-2">iratkozz fel</h3>
                     <form action="subscribe.php">
                         <label for="email"></label>
                         <input class="w-full p-2 text-sm text-black bg-white bg-transparent mb-1" type="email" name="" id="" placeholder="E-mail cím">
-                        <button class="bg-gray-400 p-2 w-full">feliratkozom</button>
+                        <button class="uppercase font-semibold bg-gray-400 hover:bg-white hover:text-gray-400 transition-all ease-linear duration-300 p-2 w-full">feliratkozom</button>
                     </form>
                 </div>
             </div>
@@ -183,5 +227,6 @@
             <a class="font-semibold" href="https://tailwind-elements.com/">VALAMILYEN CÉGNÉV KFT. - MINDEN JOG FENNTARTVA</a>
         </div>
    </footer>
+   <script src="index.js"></script>
 </body>
 </html>
