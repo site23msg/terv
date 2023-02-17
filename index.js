@@ -38,6 +38,7 @@ function openModal() {
 function closeModal() {
   document.getElementById('modal').style.display = 'none';
   body.classList.remove('overflow-hidden');
+  body.classList.add('overflow')
 }
 
 const langSelector = document.getElementById('language-select');
