@@ -419,10 +419,6 @@ video {
   display: none;
 }
 
-html {
-  font-family: Cambo, sans-serif;
-}
-
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -515,6 +511,16 @@ html {
   --tw-backdrop-opacity:  ;
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
+}
+
+@font-face {
+  font-family: "Cabin";
+
+  src: url('/fonts/Cabin/cabinmedium.ttf');
+
+  font-family: "Josefin";
+
+  src: url('/fonts/Josefin_Sans/JosefinSans-VariableFont_wght.ttf')
 }
 
 .fixed {
@@ -853,10 +859,6 @@ html {
   gap: 1.25rem;
 }
 
-.gap-6 {
-  gap: 1.5rem;
-}
-
 .gap-y-5 {
   row-gap: 1.25rem;
 }
@@ -881,10 +883,6 @@ html {
 
 .rounded-full {
   border-radius: 9999px;
-}
-
-.rounded-lg {
-  border-radius: 0.5rem;
 }
 
 .rounded-md {
@@ -957,12 +955,24 @@ html {
   background-image: url('/assets/services.png');
 }
 
+.bg-\[url\(\'\/assets\/background\.png\'\)\] {
+  background-image: url('/assets/background.png');
+}
+
 .bg-cover {
   background-size: cover;
 }
 
+.bg-contain {
+  background-size: contain;
+}
+
 .bg-no-repeat {
   background-repeat: no-repeat;
+}
+
+.bg-repeat-y {
+  background-repeat: repeat-y;
 }
 
 .object-cover {
@@ -1026,11 +1036,6 @@ html {
   padding-bottom: 1.25rem;
 }
 
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
 .pt-10 {
   padding-top: 2.5rem;
 }
@@ -1039,8 +1044,8 @@ html {
   text-align: center;
 }
 
-.font-Cambo {
-  font-family: Cambo, sans-serif;
+.font-Josefin {
+  font-family: Josefin, sans-serif;
 }
 
 .text-2xl {
@@ -1195,12 +1200,6 @@ html {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
-@font-face {
-  font-family: 'Cambo', sans-serif;
-
-  src: url('./fonts/Cambo/Cambo-Regular.ttf');
-}
-
 .before\:absolute::before {
   content: var(--tw-content);
   position: absolute;
@@ -1307,6 +1306,11 @@ html {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.hover\:text-black:hover {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
 .hover\:text-gray-400:hover {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
@@ -1314,6 +1318,12 @@ html {
 
 .hover\:opacity-0:hover {
   opacity: 0;
+}
+
+.hover\:shadow-planetag:hover {
+  --tw-shadow: 0px 0px 25px 10px #fff, 0px 0px 50px 30px rgb(107 114 128), 0px 0px 75px 0px rgb(156 163 175);
+  --tw-shadow-colored: 0px 0px 25px 10px var(--tw-shadow-color), 0px 0px 50px 30px var(--tw-shadow-color), 0px 0px 75px 0px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .hover\:duration-300:hover {
@@ -1337,14 +1347,6 @@ html {
 }
 
 @media (min-width: 640px) {
-  .sm\:gap-8 {
-    gap: 2rem;
-  }
-
-  .sm\:p-8 {
-    padding: 2rem;
-  }
-
   .sm\:px-0 {
     padding-left: 0px;
     padding-right: 0px;
@@ -1499,7 +1501,13 @@ html {
     font-size: 3rem;
     line-height: 1;
   }
+
+  .xl\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 }
+
 
 
 

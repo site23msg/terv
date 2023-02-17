@@ -3,6 +3,15 @@ const popUpImg = document.querySelectorAll('.popupimg')
 const body = document.querySelector('body')
 const modal = document.querySelector('.modal');
 
+// AOS INIT
+try{
+  AOS.init();
+  console.log("Succes")}
+  catch(e) {
+      console.log(e);
+  }
+
+
 const swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',

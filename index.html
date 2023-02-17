@@ -10,9 +10,14 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="node_modules/aos/dist/aos.css" />
+    <script src="node_modules/aos/dist/aos.js"></script>
     <title>TervKÉSZ</title>
 </head>
-<body class="bg-black text-white font-Cambo" x-data="{ navbar: false }">
+<script>
+    AOS.init();
+</script>
+<body class="bg-black text-white font-Josefin" x-data="{ navbar: false }">
     <!--Header-->
     <header class="bg-[url('/assets/headerimg2.png')] bg-cover h-[1500px] bg-no-repeat">
         <div class="flex flex-row justify-between">
@@ -22,15 +27,15 @@
                 </a>
             </div>
             <nav class="items-center justify-center px-8 hidden lg:flex">
-                <div class="flex text-xl space-x-28 items-center">
-                  <a href="#" class="text-base hover:text-gray-400 font-medium"><span class="hu">Szolgáltatások</span><span class="en hidden">Services</span></a>
-                  <a href="#about" class="text-base hover:text-gray-400 font-medium"><span class="hu">Rólunk</span><span class="en hidden">About</span></a>
-                  <a href="#contact" class="text-base hover:text-gray-400 font-medium"><span class="hu">Kapcsolat</span><span class="en hidden">Contact</span></a>
+                <div class="flex text-base xl:text-xl space-x-28 items-center">
+                  <a href="#" class="hover:text-gray-400"><span class="hu">Szolgáltatások</span><span class="en hidden">Services</span></a>
+                  <a href="#about" class="hover:text-gray-400"><span class="hu">Rólunk</span><span class="en hidden">About</span></a>
+                  <a href="#contact" class="hover:text-gray-400"><span class="hu">Kapcsolat</span><span class="en hidden">Contact</span></a>
                   <!-- This is an example component -->
 
-                <div class='flex items-center justify-center'>
+                <div class='flex items-center justify-center text-base xl:text-xl'>
                     <div class="relative" x-data="{ open: false }" @click.away="open = false">
-                        <button @click="open = ! open" type="button" class="text-white hover:text-gray-400 group p-4 inline-flex items-center rounded-md bg-transparent text-base font-medium" aria-expanded="false">
+                        <button @click="open = ! open" type="button" class="text-white hover:text-gray-400 group p-4 inline-flex items-center rounded-md bg-transparent font-medium" aria-expanded="false">
                             <span>Options</span>
                             <svg :class="{'rotate-180 duration-300': open, 'duration-300' : !open}" class="text-white ml-2 h-5 w-5 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                             <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
@@ -47,10 +52,10 @@
                     x-transition:leave-end="opacity-0 scale-90"
                     class="absolute left-1/2 z-full w-full mt-3 -translate-x-1/2 transform px-2 sm:px-0">
 
-                    <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                    <div class="relative grid gap-6 bg-transparent px-5 py-6 sm:gap-8 sm:p-8" id="language-select">
-                        <img data-img-id="hu" class="flags cursor-pointer" src="https://flagcdn.com/hu.svg" @click="open = false" alt="">
-                        <img data-img-id="en" class="flags cursor-pointer" src="https://flagcdn.com/gb.svg" @click="open = false" alt="">
+                    <div class="overflow-hidden shadow-lg ring-1 ring-black ring-opacity-5">
+                    <div class="relative bg-black text-white flex font-bold flex-col justify-center items-center" id="language-select">
+                        <p data-img-id="hu" class="flags cursor-pointer w-full hover:bg-white hover:text-black text-center" @click="open = false">HU</p>
+                        <p data-img-id="en" class="flags cursor-pointer w-full hover:bg-white hover:text-black text-center" @click="open = false">EN</p>
                     </div>
                     </div>
                     </div>
@@ -101,7 +106,7 @@
          <!--Services-->
         <div class="my-20 lg:w-[70%] lg:mx-auto text-base lg:text-md px-7 flex flex-col justify-center items-center">
             <div class="max-w-[600px] text-center md:absolute left-[36%] top-[10%] flex flex-col md:flex-row items-center gap-10 mb-10 md:mb-0">
-                <div class="rounded-[50%] shadow-planetag w-[100px] h-[100px] lg:w-[140px] lg:h-[140px] xl:w-[180px] xl:h-[180px] bg-black z-10 flex-shrink-0"></div>
+                <div class="rounded-[50%] hover:shadow-planetag hover:cursor-pointer transition-all duration-300 w-[100px] h-[100px] lg:w-[140px] lg:h-[140px] xl:w-[180px] xl:h-[180px] bg-black z-10 flex-shrink-0"></div>
                 <p class="bg-black md:bg-transparent bg-opacity-60 p-4">
                     <span class="hu">Ezzel az eszközzel egyedi szövegeket tudsz generálni az oldaladra mutató linkekhez. Néhány szót, aminek van szinonímája, vegyél körbe</span>
                     <span class="en">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda officiis exercitationem doloribus quod magni tenetur facilis nemo pariatur natus earum consequatur beatae similique facere, vero sunt porro! Illum, culpa voluptate.</span>
@@ -137,7 +142,7 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore modi omnis quod amet, esse facilis tenetur odit? Dolorem repellendus commodi, quidem dolores, sapiente neque illo debitis, doloribus est voluptatum impedit?
                     </span>
                 </p>
-                <canvas class="h-[200px]" id="canvas"></canvas>
+                <canvas class="h-[200px]" id="earth"></canvas>
             </div>
         </div>
     </section>
@@ -147,16 +152,16 @@
         <div class="text-center lg:text-left text-white">
             <h2 class="uppercase font-bold xl:text-5xl py-20"><span class="hu">galéria</span><span class="en">gallery</span></h2>
             <div class="flex flex-wrap justify-center lg:justify-between gap-20 uppercase font-bold text-xl lg:text-2xl">
-                <div class="relative flex items-center justify-center popupimg w-[300px] h-[300px] bg-[url('/assets/services.png')]">
-                    <div class="absolute bg-black opacity-60 w-full h-full transition-all hover:opacity-0 hover:scale-[1.1] hover:duration-300 hover:cursor-pointer"></div>
+                <div data-aos="zoom-in" class="relative flex items-center justify-center popupimg w-[300px] h-[300px] bg-[url('/assets/services.png')] transition-all hover:scale-[1.1] duration-300">
+                    <div class="absolute bg-black opacity-60 w-full h-full transition-all hover:opacity-0 hover:duration-300 hover:cursor-pointer"></div>
                     <p class="z-10"><span class="hu">tervkészgroup</span><span class="en">machinerygroup</span></p>
                 </div>
-                <div class="relative flex items-center justify-center popupimg w-[300px] h-[300px] bg-[url('/assets/services.png')]">
-                    <div class="absolute bg-black opacity-60 w-full h-full transition-all hover:opacity-0 hover:scale-[1.1] hover:duration-300 hover:cursor-pointer"></div>
+                <div data-aos="zoom-in" data-aos-delay="200" class="relative flex items-center justify-center popupimg w-[300px] h-[300px] bg-[url('/assets/services.png')] hover:scale-[1.1] duration-300">
+                    <div class="absolute bg-black opacity-60 w-full h-full transition-all hover:opacity-0 hover:duration-300 hover:cursor-pointer"></div>
                     <p class="z-10"><span class="hu">tervkészgroup</span><span class="en">machinerygroup</span></p>
                 </div>
-                <div class="relative flex items-center justify-center popupimg w-[300px] h-[300px] bg-[url('/assets/services.png')]">
-                    <div class="absolute bg-black opacity-60 w-full h-full transition-all hover:opacity-0 hover:scale-[1.1] hover:duration-300 hover:cursor-pointer"></div>
+                <div data-aos="zoom-in" data-aos-delay="300" class="relative flex items-center justify-center popupimg w-[300px] h-[300px] bg-[url('/assets/services.png')] hover:scale-[1.1] duration-300">
+                    <div class="absolute bg-black opacity-60 w-full h-full transition-all hover:opacity-0 hover:duration-300 hover:cursor-pointer"></div>
                     <p class="z-10"><span class="hu">tervkészgroup</span><span class="en">machinerygroup</span></p>
                 </div>
             </div>
@@ -214,9 +219,7 @@
             </form>
         </div>
     </section>
-    <canvas id="canvas1"></canvas>
     <!--Kapcsolat end-->
-   </main>
     <div class="relative z-20">
         <div id="modal" class="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-50 items-center justify-center hidden">
             <button class="absolute top-0 right-0 lg:top-5 lg:right-10 m-4 text-white text-7xl cursor-pointer" onclick="closeModal()">&times;</button>
@@ -297,51 +300,7 @@
             <a class="font-semibold" href="https://tailwind-elements.com/"><span class="hu">VALAMILYEN CÉGNÉV KFT. - MINDEN JOG FENNTARTVA</span><span class="en">SOME COMPANY KFT. - ALL RIGHTS RESERVED</span></a>
         </div>
    </footer>
+   <script src="earth.js"></script>
    <script src="index.js"></script>
-   <script>
-      const canvas = document.getElementById('canvas');
-
-      const renderer = new THREE.WebGLRenderer({ canvas });
-
-      const scene = new THREE.Scene();
-
-      const geometry = new THREE.SphereGeometry(10, 32, 32);
-
-      const textureLoader = new THREE.TextureLoader();
-      const texture = textureLoader.load('https://threejs.org/examples/textures/land_ocean_ice_cloud_2048.jpg');
-      const material = new THREE.MeshPhongMaterial({ map: texture });
-      const globe = new THREE.Mesh(geometry, material);
-
-      scene.add(globe);
-
-      const light = new THREE.DirectionalLight(0xffffff, 1);
-      light.position.set(5, 3, 5);
-      scene.add(light);
-
-      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-      //when you increase the size you have to increase the camera position also
-      camera.position.z = 17;
-
-      function createNeptune() {
-        const canvas = document.getElementById('canvas1');
-        const renderer = new THREE.WebGLRenderer({ canvas1 });
-        const textureLoader = new THREE.TextureLoader();
-        const neptuneTexture = textureLoader.load('./assets/sun.jpg');
-        const material = new THREE.MeshBasicMaterial({ map: neptuneTexture });
-        const geometry = new THREE.SphereGeometry(2, 32, 32);
-        const sphere = new THREE.Mesh(geometry, material);
-        sphere.position.x = -10;
-        scene.add(sphere);
-      }
-
-      function animate() {
-        requestAnimationFrame(animate);
-
-        globe.rotation.y += 0.01;
-        createNeptune();
-        renderer.render(scene, camera);
-      }
-      animate();
-</script>
 </body>
 </html>
